@@ -1,7 +1,5 @@
 package com.dusanv;
 
-import com.sun.istack.internal.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +7,7 @@ public class Letter {
 
     private List<String> lines = new ArrayList<>();
 
-    public Letter(@NotNull List<String> lines) {
+    public Letter(List<String> lines) {
         this.lines = lines;
     }
 

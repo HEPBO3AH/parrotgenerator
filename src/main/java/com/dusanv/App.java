@@ -1,19 +1,19 @@
 package com.dusanv;
 
-import java.io.IOException;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        ConverterService service = new ConverterService(new LetterProvider());
+@SpringBootApplication
+public class App extends SpringBootServletInitializer {
 
-        try {
-            String input = "DUSAN";
-            service.convertPhrase(input, ":party_cat:", ":sheepy:");
-            System.out.println("File saved as: " + input + ".txt");
-        } catch (IOException e) {
-            System.out.println("Failed to convert: " + e.getMessage());
-        }
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(App.class);
+    }
+
+    public static void main( String[] args ) {
+        SpringApplication.run(App.class, args);
     }
 }
